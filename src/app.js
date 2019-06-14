@@ -4,16 +4,10 @@ const hbs = require("hbs");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 
-var PORT = process.env.PORT || 3000;
-
 // console.log(__dirname); => current directory path
 // console.log(path.join(__dirname, "../public"));
 
 const app = express();
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 // Define paths for Express config
 const publicDirPath = path.join(__dirname, "../public");
@@ -112,6 +106,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(3000, () => {
   console.log("Server listening on port 3000");
 });
