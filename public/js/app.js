@@ -1,12 +1,26 @@
 console.log("Client side javascript file is loaded!");
 
-fetch("http://localhost:3000/weather?address=!").then(response => {
-  response.json().then(data => {
-    if (data.error) {
-      console.log(data.error);
-    } else {
-      console.log(data.location);
-      console.log(data.forecast);
-    }
+const weatherForm = document.querySelector("form");
+const searchInput = document.querySelector("input");
+const messageOne = document.getElementById("messageOne");
+const messageTwo = document.getElementById("messageTwo");
+
+weatherForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const location = searchInput.value;
+
+  messageOne.innerHTML = "Loading... weather forecast";
+  messageTwo.innerHTML = "";
+
+  fetch("http://localhost:3000/weather?address=" + location).then(response => {
+    response.json().then(data => {
+      if (data.error) {
+        messageOne.innerHTML = data.error;
+      } else {
+        messageOne.innerHTML = data.location;
+        messageTwo.innerHTML = data.forecast;
+      }
+    });
   });
+  weatherForm.reset();
 });
