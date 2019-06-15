@@ -26,7 +26,7 @@ app.use(express.static(publicDirPath));
 
 app.get("", (req, res) => {
   res.render("index", {
-    title: "Weather",
+    title: "Weather Forecast",
     name: "Michael Womack"
   });
 });
@@ -50,6 +50,7 @@ app.get("/weather", (req, res) => {
   if (!req.query.address) {
     return res.send({ error: "You must provide an address" });
   }
+  console.log(req);
 
   geocode(
     req.query.address,
@@ -71,25 +72,6 @@ app.get("/weather", (req, res) => {
       });
     }
   );
-
-  // res.send({
-  //   address: req.query.address,
-  //   forecast: "Cloudy",
-  //   location: "Los Angeles"
-  // });
-});
-
-app.get("/products", (req, res) => {
-  if (!req.query.search) {
-    return res.send({
-      error: "You must provide a search term"
-    });
-  }
-
-  console.log(req.query.search);
-  res.send({
-    products: []
-  });
 });
 
 app.get("/help/*", (req, res) => {

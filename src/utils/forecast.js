@@ -21,7 +21,7 @@ const forecast = (lat, long, callback) => {
         } degrees out. There's a ${
           body.currently.precipProbability
         }% chance of rain. 
-        Today's high and low temps.
+        
         <ul>
          <li>High of ${body.daily.data[0].temperatureHigh} degrees F</li>
          <li>Low of ${body.daily.data[0].temperatureLow} degrees F</li>
