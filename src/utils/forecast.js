@@ -23,8 +23,8 @@ const forecast = (lat, long, callback) => {
         }% chance of rain. 
         
         <ul>
-         <li>High of ${body.daily.data[0].temperatureHigh} degrees F</li>
-         <li>Low of ${body.daily.data[0].temperatureLow} degrees F</li>
+         <li>High of ${body.daily.data[0].temperatureHigh} <sup>o</sub>F</li>
+         <li>Low of ${body.daily.data[0].temperatureLow} <sup>o</sub>F</li>
          </ul>
         `
       );
