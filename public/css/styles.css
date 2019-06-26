@@ -50,6 +50,17 @@ footer {
   padding: 1rem 0;
 }
 
+input:focus,
+button:focus {
+  outline: none;
+  border-bottom: 2px red solid;
+}
+
+input:active,
+button:active {
+  border-bottom: none;
+}
+
 input {
   border: 1px solid #ccc;
   padding: 8px;
@@ -66,6 +77,12 @@ button {
   color: white;
   border-radius: 5px;
   font-size: 1rem;
+}
+
+p a,
+p a:visited {
+  text-decoration: none;
+  color: gray;
 }
 
 /* color for gradients 
